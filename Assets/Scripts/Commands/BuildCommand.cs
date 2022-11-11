@@ -1,7 +1,7 @@
 ﻿using System;
-using StarterAssets.Services;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "BuildCommand", menuName = "ScriptableObjects/Commands/BuildCommand", order = 1)]
 public class BuildCommand : ScriptableObject, ICommand
 {
 	#region Serialize Fields

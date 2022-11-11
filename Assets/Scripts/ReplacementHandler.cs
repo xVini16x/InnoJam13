@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Collider))] //triggerCOllider for pickup logic
 public class ReplacementHandler : MonoBehaviour
 {
+	public ItemType ItemType;
 	public GameObject unplaced;
 	public GameObject placed;
-	public GameObject visualRoot;
 
 	private void Start()
 	{
