@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        var playerPosition = FindObjectOfType<PlayerCharacter>().transform.position;
+        var playerPosition = FindObjectOfType<LifeArtifact>().transform.position;
         agent.SetDestination(playerPosition);
     }
 }
