@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AllyCharacter : MonoBehaviour
+public class AllyLogic : MonoBehaviour
 {
     [SerializeField] private uint maxHealth = 10;
     [SerializeField] private NavMeshAgent agent;
@@ -17,11 +17,11 @@ public class AllyCharacter : MonoBehaviour
 
     private void Update()
     {
-        var enemies = FindObjectsOfType<Enemy>().Select(x => x.transform).ToArray();
+        var enemies = FindObjectsOfType<EnemyLogic>().Select(x => x.transform).ToArray();
         var closestEnemy = GetClosestEnemy(enemies);
         agent.SetDestination(closestEnemy.position);
     }
-    
+
     Transform GetClosestEnemy(Transform[] enemies)
     {
         Transform closestTransform = null;

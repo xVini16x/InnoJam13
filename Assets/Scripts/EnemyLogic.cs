@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class EnemyLogic : MonoBehaviour
 {
     [SerializeField] private uint maxHealth = 10;
     [SerializeField] private NavMeshAgent agent;
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        var playerPosition = FindObjectOfType<LifeArtifact>().transform.position;
-        agent.SetDestination(playerPosition);
+        var artifact = FindObjectOfType<LifeArtifactLogic>().transform.position;
+        agent.SetDestination(artifact);
     }
 }

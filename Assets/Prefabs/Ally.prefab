@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 9090600971508783206}
   - component: {fileID: 9090600971508783207}
   - component: {fileID: 1661580451107474641}
-  - component: {fileID: 4138327311459384664}
+  - component: {fileID: 7479652697292890022}
   m_Layer: 0
   m_Name: Ally
   m_TagString: Untagged
@@ -220,7 +220,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4138327311459384664
+--- !u!114 &7479652697292890022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
