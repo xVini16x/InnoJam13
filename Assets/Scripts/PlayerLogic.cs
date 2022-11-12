@@ -14,7 +14,11 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
 
     private void Start()
     {
+        startPosition = transform.position;
         SetHealth(maxHealth);
+        MessageBroker.Default.Receive<PlayerHealthChanged>()
+            .TakeUntilDestroy(this)
+            .Subscribe(HealthChanged);
     }
 
     private void Update()
@@ -99,6 +103,22 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
             Destroy(gameObject);
         }
     }
+    
+    private void HealthChanged(PlayerHealthChanged data)
+    {
+        if (data.NewPlayerHealth <= 0)
+        {
+            Respawn();
+        }
+    }
+
+    private void Respawn()
+    {
+        transform.position = startPosition;
+        SetHealth(maxHealth);
+    }
+
+    private Vector3 startPosition;
 }
 
 [Serializable]

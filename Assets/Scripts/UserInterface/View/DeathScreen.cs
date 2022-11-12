@@ -21,15 +21,15 @@ namespace UserInterface.View
 		
 		private void Start()
 		{
-			MessageBroker.Default.Receive<PlayerHealthChanged>()
+			MessageBroker.Default.Receive<LifeArtifactHealthChanged>()
 				.TakeUntilDestroy(this)
-				.Subscribe(OnPlayerHealthChanged);
+				.Subscribe(HealthChanged);
 		}
 
-		private void OnPlayerHealthChanged(PlayerHealthChanged data)
+		private void HealthChanged(LifeArtifactHealthChanged data)
 		{
 
-			if (data.NewPlayerHealth <= 0)
+			if (data.NewArtifactHealth <= 0)
 			{
 Activate();
 			}
