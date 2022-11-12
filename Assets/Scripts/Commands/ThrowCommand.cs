@@ -11,7 +11,12 @@ public class ThrowCommand : ICommand
 	
 	public override bool DoCommand(CommandExecuter executer)
 	{
-		if (!_buildingSystem.TryToThrowObject(executer.GetExecuterTransform().forward*throwForce, out var replacementHandler))
+		var trans = executer.GetExecuterTransform();
+		if (executer.GetExecuterType() == ExecuterType.Player)
+		{
+			trans = Camera.main.transform;
+		}
+		if (!_buildingSystem.TryToThrowObject(trans.forward*throwForce, out var replacementHandler))
 		{
 			return false;
 		}
