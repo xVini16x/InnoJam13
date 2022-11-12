@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b46dcb0e7f4fc5a2484ca9e777098c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 6
   agent: {fileID: 1661580451107474641}
   _rigidbody: {fileID: 7112603554779879531}
   navMeshDistanceCheck: 0.5

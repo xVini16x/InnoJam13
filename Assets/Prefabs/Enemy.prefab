@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6685886067587410889}
   - component: {fileID: 3886142493357735807}
   - component: {fileID: 1843553072045175647}
+  - component: {fileID: 4610199666142785364}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -137,6 +138,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   agent: {fileID: 3886142493357735807}
+  enemyView: {fileID: 4610199666142785364}
+--- !u!114 &4610199666142785364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685886067587410894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c44b58a65154e2cbf5006d8808ab945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimation: {fileID: 2720712707139665039}
 --- !u!1001 &2635445894268915063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -204,11 +219,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95444039601123832, guid: 009bfdcbf43056e4baacce4494b47114,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009bfdcbf43056e4baacce4494b47114, type: 3}
 --- !u!4 &2631194761780809431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4817656603034528, guid: 009bfdcbf43056e4baacce4494b47114,
+    type: 3}
+  m_PrefabInstance: {fileID: 2635445894268915063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2720712707139665039 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95444039601123832, guid: 009bfdcbf43056e4baacce4494b47114,
     type: 3}
   m_PrefabInstance: {fileID: 2635445894268915063}
   m_PrefabAsset: {fileID: 0}
