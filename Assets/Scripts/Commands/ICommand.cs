@@ -1,8 +1,11 @@
-﻿public interface ICommand
+﻿using System;
+using UnityEngine;
+
+public abstract class ICommand:ScriptableObject
 {
 	#region Public methods
 
-	bool DoCommand(); // return success state
+	public abstract bool DoCommand(); // return success state
 
 	#endregion
 }

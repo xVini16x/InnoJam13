@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BuildCommand", menuName = "ScriptableObjects/Commands/BuildCommand", order = 1)]
-public class BuildCommand : ScriptableObject, ICommand
+public class BuildCommand : ICommand
 {
 	#region Serialize Fields
 
@@ -35,7 +35,7 @@ public class BuildCommand : ScriptableObject, ICommand
 
 	#region ICommand Members
 
-	public bool DoCommand()
+	public override bool DoCommand()
 	{
 		if (InventorySystem.TryUseItem(_buildCommandSettings.ItemTypeToBuild))
 		{
