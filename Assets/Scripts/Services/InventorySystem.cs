@@ -28,7 +28,7 @@ public class InventorySystem : ScriptableObjectSystemBase
 		}
 	}
 
-	public bool TryUseItem(ItemType itemType, int Amount = 1)
+	public bool TryUseItem(ItemType itemType, int amount = 1)
 	{
 		Func<Item, bool> condition = item => item.ItemType == itemType;
 		if (!Items.Any(condition))
@@ -39,13 +39,13 @@ public class InventorySystem : ScriptableObjectSystemBase
 
 		{
 			var item = Items.FirstOrDefault(condition);
-			if (item.Count < Amount)
+			if (item.Count < amount)
 			{
 				Debug.LogError("we dont have enough items");
 				return false;
 			}
 
-			item.Count -= Amount;
+			item.Count -= amount;
 			//item.Use();
 			return true;
 		}
