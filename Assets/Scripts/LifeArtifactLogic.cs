@@ -9,7 +9,7 @@ public class LifeArtifactLogic : MonoBehaviour
 
     private void Start()
     {
-        _health = maxHealth;
+        SetHealth(maxHealth);
     }
 
     private void OnTriggerStay(Collider other)
@@ -23,11 +23,11 @@ public class LifeArtifactLogic : MonoBehaviour
 
     private void SetHealth(float health)
     {
+        _health = health;
         MessageBroker.Default.Publish(new LifeArtifactHealthChanged{
             NewArtifactHealth = _health,
             MaxArtifactHealth = maxHealth
         });
-        _health = health;
         if (_health <= 0f)
         {
             Destroy(gameObject);
