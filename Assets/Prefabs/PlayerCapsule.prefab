@@ -362,3 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ffd3a9528e450cbc45a10b02fcf4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerInputMaps:
+  - Command: {fileID: 11400000, guid: 0e4381e22af7b284b810096db4a90638, type: 2}
+    InputType: 0
+    KeyCode: 101
