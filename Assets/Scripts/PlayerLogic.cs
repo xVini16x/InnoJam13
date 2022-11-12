@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLogic : MonoBehaviour
+public class PlayerLogic : MonoBehaviour, CommandExecuter
 {
     [SerializeField] private List<PlayerInputMap> PlayerInputMaps;
     [SerializeField] private float maxHealth = 10f;
@@ -30,14 +30,14 @@ public class PlayerLogic : MonoBehaviour
                 case InputType.ButtonDown:
                     if (Input.GetKeyDown(current.KeyCode))
                     {
-                        current.Command.DoCommand();
+                        current.Command.DoCommand(this);
                     }
 
                     break;
                 case InputType.ButtonUp:
                     if (Input.GetKeyUp(current.KeyCode))
                     {
-                        current.Command.DoCommand();
+                        current.Command.DoCommand(this);
                     }
 
                     break;

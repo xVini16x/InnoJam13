@@ -4,55 +4,50 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BuildCommand", menuName = "ScriptableObjects/Commands/BuildCommand", order = 1)]
 public class BuildCommand : ICommand
 {
-	#region Serialize Fields
-
 	[SerializeField] private BuildingSystem _buildingSystem;
 	[SerializeField] private InventorySystem _inventorySystem;
-
-	#endregion
-
-	#region Private Fields
-
-	[NonSerialized] private BuildCommandSettings _buildCommandSettings;
-
-	#endregion
-
-	#region Properties
+	[SerializeField] private BuildCommandSettings _buildCommandSettings;
 
 	public BuildingSystem BuildingSystem => _buildingSystem;
 	public InventorySystem InventorySystem => _inventorySystem;
-
-	#endregion
-
-	#region Public methods
-
-	public void InitCommand(BuildCommandSettings commandSetttings)
-	{
-		_buildCommandSettings = commandSetttings;
-	}
-
-	#endregion
-
-	#region ICommand Members
-
-	public override bool DoCommand()
+	private RaycastHit[] _raycastHits = new RaycastHit[5];
+	public override bool DoCommand(CommandExecuter executer)
 	{
 		if (InventorySystem.TryUseItem(_buildCommandSettings.ItemTypeToBuild))
 		{
-			return BuildingSystem.TryToPlaceObject(_buildCommandSettings.PlacementPosition);
+			Transform mainTransform = Camera.main.transform;
+			if (Physics.RaycastNonAlloc(mainTransform.position, mainTransform.forward, _raycastHits)>0)
+			{
+				for (int i = 0; i < _raycastHits.Length; i++)
+				{
+					var currentHit = _raycastHits[i];
+					if (currentHit.transform == null)
+					{
+						continue;
+					}
+					if (!currentHit.transform.TryGetComponent<BuildableArea>(out var area))
+					{
+						continue;
+					}
+
+					_buildCommandSettings.PlacementPosition = currentHit.point;
+					var placementPosition = _buildCommandSettings.PlacementPosition;
+					return BuildingSystem.TryToPlaceObject(placementPosition);
+				}
+			}
 		}
 
 		return false;
 	}
-
-	#endregion
 }
 
+[Serializable]
 public class BuildCommandSettings : CommandSetttings
 {
 	#region Public Fields
 
 	public ItemType ItemTypeToBuild;
+	[HideInInspector] // will set this by code for now
 	public Vector3 PlacementPosition;
 
 	#endregion
