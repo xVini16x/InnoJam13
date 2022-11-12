@@ -8,6 +8,7 @@ namespace World
     {
         [SerializeField] private GameObject allyPrefab;
         [SerializeField] private float spawnIntervalSeconds;
+        [SerializeField] private Transform spawnPosition;
 
         private void Start()
         {
@@ -20,7 +21,7 @@ namespace World
 
         private void Spawn()
         {
-            Instantiate(allyPrefab, transform.position, Quaternion.identity, null);
+            Instantiate(allyPrefab, spawnPosition.position, Quaternion.identity, null);
         }
     }
 }
