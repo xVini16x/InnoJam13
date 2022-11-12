@@ -5,17 +5,17 @@ using UnityEngine.AI;
 
 public class AllyLogic : MonoBehaviour
 {
-    [SerializeField] private uint maxHealth = 10;
+    [SerializeField] private float maxHealth = 10f;
     [SerializeField] private NavMeshAgent agent;
 
-    private uint _health;
+    private float _health;
 
     private void Start()
     {
         _health = maxHealth;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         var enemies = FindObjectsOfType<EnemyLogic>().Select(x => x.transform).ToArray();
         var closestEnemy = GetClosestEnemy(enemies);
@@ -36,6 +36,25 @@ public class AllyLogic : MonoBehaviour
                 minimumDistance = distance;
             }
         }
+
         return closestTransform;
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.transform.GetComponent<EnemyLogic>() != null)
+        {
+            // TODO: let enemy logic configure their attack strength
+            SetHealth(_health - 2f * Time.deltaTime);
+        }
+    }
+
+    private void SetHealth(float health)
+    {
+        _health = health;
+        if (_health <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
