@@ -68,6 +68,7 @@ public class BuildingSystem : ScriptableObjectSystemBase
 
 	public bool TryToSpwanObject(GameObject prefabForBuilding, Vector3 placementPos, Quaternion rot)
 	{
+		placementPos.y = 0;
 		UnityEngine.GameObject.Instantiate(prefabForBuilding, placementPos, rot);
 		return true;
 	}
