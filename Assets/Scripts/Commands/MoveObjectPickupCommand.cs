@@ -22,6 +22,7 @@ public class MoveObjectPickupCommand : ICommand
 			return false;
 		}
 		
+		Debug.Log("Did collect "+replacementHandler.gameObject.name);
 		_inventorySystem.CollectItem(replacementHandler.ItemType); 
 		return true;
 	}

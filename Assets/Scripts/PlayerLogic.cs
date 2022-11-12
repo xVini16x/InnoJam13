@@ -40,14 +40,22 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
                 case InputType.ButtonDown:
                     if (Input.GetKeyDown(current.KeyCode))
                     {
-                        current.Command.DoCommand(this);
+                        if (current.Command.DoCommand(this))
+                        {
+                            return;    
+                        }
+                        
                     }
 
                     break;
                 case InputType.ButtonUp:
                     if (Input.GetKeyUp(current.KeyCode))
                     {
-                        current.Command.DoCommand(this);
+                        if (current.Command.DoCommand(this))
+                        {
+                            return;    
+                        }
+                        
                     }
 
                     break;

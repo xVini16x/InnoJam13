@@ -20,7 +20,11 @@ public class AllyLogic : MonoBehaviour
         if (enemies.Length > 0)
         {
             var closestEnemy = GetClosestEnemy(enemies);
-            agent.SetDestination(closestEnemy.position);
+            if (agent.enabled)
+            {
+                agent.SetDestination(closestEnemy.position);    
+            }
+            
         }
     }
 

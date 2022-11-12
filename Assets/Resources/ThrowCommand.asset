@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildingSystem: {fileID: 11400000, guid: 3530acfdb0e9f5c438376ebd25a20ee5, type: 2}
   _inventorySystem: {fileID: 11400000, guid: 6dccd2a1e9987d04994fdb9230a11b8b, type: 2}
-  throwForce: 10
+  throwForce: 15
