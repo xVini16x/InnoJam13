@@ -18,8 +18,11 @@ public class AllyLogic : MonoBehaviour
     private void FixedUpdate()
     {
         var enemies = FindObjectsOfType<EnemyLogic>().Select(x => x.transform).ToArray();
-        var closestEnemy = GetClosestEnemy(enemies);
-        agent.SetDestination(closestEnemy.position);
+        if (enemies.Length > 0)
+        {
+            var closestEnemy = GetClosestEnemy(enemies);
+            agent.SetDestination(closestEnemy.position);
+        }
     }
 
     Transform GetClosestEnemy(Transform[] enemies)
