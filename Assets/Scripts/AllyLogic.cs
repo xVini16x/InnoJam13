@@ -7,8 +7,12 @@ public class AllyLogic : MonoBehaviour
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private float navMeshDistanceCheck = 0.5f;
+    [SerializeField] private AllyView view;
 
+    private float lastCheckTime;
     private float _health;
+    private bool isDead;
 
     private void Start()
     {
@@ -23,23 +27,20 @@ public class AllyLogic : MonoBehaviour
             var closestEnemy = GetClosestEnemy(enemies);
             if (agent.enabled)
             {
-                agent.SetDestination(closestEnemy.position);    
+                agent.SetDestination(closestEnemy.position);
             }
-            
         }
 
-        if (!agent.enabled && _rigidbody.velocity.magnitude < 0.3f && Time.timeSinceLevelLoad-lastCheckTime > 1f && transform.parent ==null)
+        if (!agent.enabled && _rigidbody.velocity.magnitude < 0.3f && Time.timeSinceLevelLoad - lastCheckTime > 1f &&
+            transform.parent == null)
         {
             lastCheckTime = Time.timeSinceLevelLoad;
-            if(NavMesh.SamplePosition(transform.position, out var hit, navMeshDistanceCheck, -1))
+            if (NavMesh.SamplePosition(transform.position, out var hit, navMeshDistanceCheck, -1))
             {
                 agent.enabled = true;
             }
         }
     }
-
-    [SerializeField] private float navMeshDistanceCheck = 0.5f;
-    private float lastCheckTime;
 
     Transform GetClosestEnemy(Transform[] enemies)
     {
@@ -71,9 +72,16 @@ public class AllyLogic : MonoBehaviour
     private void SetHealth(float health)
     {
         _health = health;
-        if (_health <= 0f)
+        if (_health <= 0f && !isDead)
         {
-            Destroy(gameObject);
+            Die();
+            Destroy(gameObject, 1f);
         }
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        view.Die();
     }
 }

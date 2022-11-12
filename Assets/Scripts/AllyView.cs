@@ -1,3 +1,5 @@
+using Events;
+using UniRx;
 using UnityEngine;
 
 public class AllyView : MonoBehaviour
@@ -10,5 +12,14 @@ public class AllyView : MonoBehaviour
     {
         animator.SetBool(Walk, true);
         animator.keepAnimatorControllerStateOnDisable = true;
+    }
+
+    public void Die()
+    {
+        MessageBroker.Default.Publish(new SpawnParticle
+        {
+            Position = transform.position,
+            Type = ParticleType.FeatherExplosion
+        });
     }
 }
