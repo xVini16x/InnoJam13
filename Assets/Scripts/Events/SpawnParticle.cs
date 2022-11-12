@@ -11,5 +11,6 @@ namespace Events
     public enum ParticleType
     {
         FeatherExplosion,
+        CharacterDeath,
     }
 }

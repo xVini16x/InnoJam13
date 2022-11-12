@@ -1,3 +1,5 @@
+using Events;
+using UniRx;
 using UnityEngine;
 
 namespace World
@@ -11,6 +13,12 @@ namespace World
         public void Die()
         {
             characterAnimation.SetTrigger(Die1);
+
+            MessageBroker.Default.Publish(new SpawnParticle
+            {
+                Position = transform.position,
+                Type = ParticleType.CharacterDeath
+            });
         }
     }
 }

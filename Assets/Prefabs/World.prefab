@@ -47,6 +47,9 @@ MonoBehaviour:
   particleConfigs:
   - type: 0
     particles: {fileID: 188088, guid: 4924b9135249e0d448901a81875768c6, type: 3}
+  - type: 1
+    particles: {fileID: 1889919486439536, guid: 35ad08272de78064cbd645a70f31f454,
+      type: 3}
 --- !u!1 &7038023593206137023
 GameObject:
   m_ObjectHideFlags: 0
