@@ -271,10 +271,10 @@ MonoBehaviour:
   - Command: {fileID: 11400000, guid: 0e4381e22af7b284b810096db4a90638, type: 2}
     InputType: 0
     KeyCode: 113
-  - Command: {fileID: 11400000, guid: 4324610229508ed46be92ea76c648f30, type: 2}
-    InputType: 0
-    KeyCode: 114
   - Command: {fileID: 11400000, guid: 297e2a1a7cc4a1745877a37b3928af12, type: 2}
+    InputType: 0
+    KeyCode: 101
+  - Command: {fileID: 11400000, guid: 4324610229508ed46be92ea76c648f30, type: 2}
     InputType: 0
     KeyCode: 101
   maxHealth: 2
