@@ -9,5 +9,6 @@ public class AllyView : MonoBehaviour
     private void Start()
     {
         animator.SetBool(Walk, true);
+        animator.keepAnimatorControllerStateOnDisable = true;
     }
 }
