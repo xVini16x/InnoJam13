@@ -6,6 +6,7 @@ public class AllyLogic : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Rigidbody _rigidbody;
 
     private float _health;
 
@@ -26,7 +27,19 @@ public class AllyLogic : MonoBehaviour
             }
             
         }
+
+        if (!agent.enabled && _rigidbody.velocity.magnitude < 0.3f && Time.timeSinceLevelLoad-lastCheckTime > 1f && transform.parent ==null)
+        {
+            lastCheckTime = Time.timeSinceLevelLoad;
+            if(NavMesh.SamplePosition(transform.position, out var hit, navMeshDistanceCheck, -1))
+            {
+                agent.enabled = true;
+            }
+        }
     }
+
+    [SerializeField] private float navMeshDistanceCheck = 0.5f;
+    private float lastCheckTime;
 
     Transform GetClosestEnemy(Transform[] enemies)
     {

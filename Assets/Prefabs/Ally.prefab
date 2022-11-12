@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   agent: {fileID: 1661580451107474641}
+  _rigidbody: {fileID: 7112603554779879531}
 --- !u!54 &7112603554779879531
 Rigidbody:
   m_ObjectHideFlags: 0
