@@ -17,7 +17,8 @@ public class BuildCommand : ICommand
 		{
 			_buildCommandSettings.Placement  = Camera.main.transform;
 		}
-		if (InventorySystem.TryUseItem(_buildCommandSettings.ItemTypeToBuild))
+		
+		if (InventorySystem.TryUseItem(_buildCommandSettings.RequiresItemType, _buildCommandSettings.RequiredAmount))
 		{
 			
 			if (Physics.RaycastNonAlloc(_buildCommandSettings.Placement.position , _buildCommandSettings.Placement.forward, _raycastHits)>0)
@@ -50,6 +51,8 @@ public class BuildCommandSettings : CommandSetttings
 	#region Public Fields
 
 	public ItemType ItemTypeToBuild;
+	public ItemType RequiresItemType;
+	public int RequiredAmount;
 	[HideInInspector] // will set this by code for now
 	public Transform Placement;
 
