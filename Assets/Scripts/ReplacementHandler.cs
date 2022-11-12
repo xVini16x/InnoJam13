@@ -62,11 +62,6 @@ public class ReplacementHandler : MonoBehaviour
 		transform.parent = null;
 		SetVisualsToPlaced();
 		rigid.AddForce(force, ForceMode.Impulse);
-		if (transform.TryGetComponent<NavMeshAgent>(out var navMeshAgent))
-		{
-			//navMeshAgent.enabled =true;
-		}
-		Debug.Log("DId throw "+transform.name);
 		return true;
 	}
 }
