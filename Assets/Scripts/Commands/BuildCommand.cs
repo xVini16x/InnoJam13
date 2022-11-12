@@ -36,7 +36,7 @@ public class BuildCommand : ICommand
 					}
 
 					var placementPosition = currentHit.transform;
-					return BuildingSystem.TryToPlaceObject(placementPosition);
+					return BuildingSystem.TryToSpwanObject(_buildCommandSettings.ItemTypeToBuild.PrefabForBuilding, placementPosition);
 				}
 			}
 		}
