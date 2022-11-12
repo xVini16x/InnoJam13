@@ -46,7 +46,6 @@ public class InventorySystem : ScriptableObjectSystemBase
 			}
 
 			item.Count -= amount;
-			//item.Use();
 			return true;
 		}
 	}
