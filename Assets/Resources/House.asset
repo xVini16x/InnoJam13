@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabForBuilding: {fileID: 4737248891963970522, guid: d99443014af414807888393826c8cc23,
     type: 3}
+  SpawnYPosition: -0.3
+  ExtentSizeForSpawning: {x: 3, y: 9, z: 3}

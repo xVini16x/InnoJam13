@@ -69,6 +69,31 @@ public class BuildingSystem : ScriptableObjectSystemBase
 	public bool TryToSpwanObject(ItemType prefabForBuilding, Vector3 placementPos, Quaternion rot)
 	{
 		placementPos.y = prefabForBuilding.SpawnYPosition;
+		if (prefabForBuilding.PrefabForBuilding.TryGetComponent<Collider>(out var collider))
+		{
+			var col = Physics.OverlapBox(placementPos, prefabForBuilding.ExtentSizeForSpawning, rot);
+			for (int i = 0; i < col.Length; i++)
+			{
+				var current = col[i];
+				if (current.CompareTag("Player"))
+				{
+					continue;
+				}
+				if (current.isTrigger)
+				{
+					continue;
+				}
+				if (current.TryGetComponent<BuildableArea>(out var area))
+				{
+					continue;
+				}
+				else
+				{
+					Debug.Log("Cannot spawn here "+col[i].gameObject.name);
+					return false;
+				}
+			}
+		}
 		UnityEngine.GameObject.Instantiate(prefabForBuilding.PrefabForBuilding, placementPos, rot);
 		return true;
 	}
