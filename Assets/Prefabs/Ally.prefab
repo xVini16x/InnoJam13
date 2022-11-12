@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 1661580451107474641}
   - component: {fileID: 7479652697292890022}
   - component: {fileID: 7112603554779879531}
+  - component: {fileID: 7682293711196087123}
   m_Layer: 0
   m_Name: Ally
   m_TagString: Untagged
@@ -283,6 +284,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7682293711196087123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090600971508783200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a263ecd3fa174744af9abddc25462900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 112689768590103026}
 --- !u!1001 &55311308202745716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355,6 +369,12 @@ PrefabInstance:
 --- !u!4 &57362644901654464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4303844821561524, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 55311308202745716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &112689768590103026 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95943282229431942, guid: 312b31977ed9b2d48a14849ebb8c7fb3,
     type: 3}
   m_PrefabInstance: {fileID: 55311308202745716}
   m_PrefabAsset: {fileID: 0}
