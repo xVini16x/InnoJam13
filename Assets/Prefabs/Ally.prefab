@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 112689768590103026}
+  navMesh: {fileID: 1661580451107474641}
 --- !u!114 &7782140848527924836
 MonoBehaviour:
   m_ObjectHideFlags: 0
