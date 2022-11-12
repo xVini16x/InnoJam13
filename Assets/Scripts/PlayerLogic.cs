@@ -6,8 +6,13 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
 {
     [SerializeField] private List<PlayerInputMap> PlayerInputMaps;
     [SerializeField] private float maxHealth = 10f;
+    [SerializeField] public Transform PickUpHostAnchor;
 
     private float _health;
+    public ExecuterType GetExecuterType()
+    {
+        return ExecuterType.Player;
+    }
 
     private void Start()
     {

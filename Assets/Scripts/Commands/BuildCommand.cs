@@ -13,10 +13,14 @@ public class BuildCommand : ICommand
 	private RaycastHit[] _raycastHits = new RaycastHit[5];
 	public override bool DoCommand(CommandExecuter executer)
 	{
+		if (executer.GetExecuterType() == ExecuterType.Player)
+		{
+			_buildCommandSettings.Placement  = Camera.main.transform;
+		}
 		if (InventorySystem.TryUseItem(_buildCommandSettings.ItemTypeToBuild))
 		{
-			Transform mainTransform = Camera.main.transform;
-			if (Physics.RaycastNonAlloc(mainTransform.position, mainTransform.forward, _raycastHits)>0)
+			
+			if (Physics.RaycastNonAlloc(_buildCommandSettings.Placement.position , _buildCommandSettings.Placement.forward, _raycastHits)>0)
 			{
 				for (int i = 0; i < _raycastHits.Length; i++)
 				{
@@ -30,8 +34,7 @@ public class BuildCommand : ICommand
 						continue;
 					}
 
-					_buildCommandSettings.PlacementPosition = currentHit.point;
-					var placementPosition = _buildCommandSettings.PlacementPosition;
+					var placementPosition = currentHit.transform;
 					return BuildingSystem.TryToPlaceObject(placementPosition);
 				}
 			}
@@ -48,7 +51,7 @@ public class BuildCommandSettings : CommandSetttings
 
 	public ItemType ItemTypeToBuild;
 	[HideInInspector] // will set this by code for now
-	public Vector3 PlacementPosition;
+	public Transform Placement;
 
 	#endregion
 }

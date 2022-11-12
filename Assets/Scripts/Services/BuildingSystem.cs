@@ -12,8 +12,9 @@ public class BuildingSystem : ScriptableObjectSystemBase
 
 	#region Public methods
 
-	public bool TryToPlaceObject(Vector3 targetPosition)
+	public bool TryToPlaceObject(Transform target)
 	{
+		var targetPosition = target.position;
 		if (equippedObject.CanPlace(targetPosition))
 		{
 			equippedObject = null;

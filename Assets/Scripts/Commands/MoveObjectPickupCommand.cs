@@ -2,29 +2,42 @@
 
 using System;
 using UnityEngine;
+using Object = System.Object;
 
 [CreateAssetMenu(fileName = "MoveObjectPickupCommand", menuName = "ScriptableObjects/Commands/MoveObjectPickupCommand", order = 1)]
 public class MoveObjectPickupCommand : ICommand
 {
 	[SerializeField] private InventorySystem _inventorySystem;
 	[SerializeField] private BuildingSystem _buildingSystem;
-	[SerializeField] private MoveObjectPickupCommandSettings _moveObjectPickupCommandSettings;
+	private MoveObjectPickupCommandSettings _moveObjectPickupCommandSettings;
+	
 	public override bool DoCommand(CommandExecuter executer)
 	{
-		if (!_buildingSystem.TryGetReplaceableObject(_moveObjectPickupCommandSettings.PickUpTransform, _moveObjectPickupCommandSettings.Anchor, out var replacementHandler))
+		if (executer.GetExecuterType() == ExecuterType.Player)
+		{
+			_moveObjectPickupCommandSettings = new PlayerMoveObjectPickupCommandSettings();
+		}
+		if (!_buildingSystem.TryGetReplaceableObject(_moveObjectPickupCommandSettings.HostTransform, _moveObjectPickupCommandSettings.Anchor, out var replacementHandler))
 		{
 			return false;
 		}
 		
-			//success
-			_inventorySystem.CollectItem(replacementHandler.ItemType);
-			return true;
+		_inventorySystem.CollectItem(replacementHandler.ItemType); 
+		return true;
 	}
 }
 
-[Serializable]
-public class MoveObjectPickupCommandSettings:CommandSetttings
+public  class MoveObjectPickupCommandSettings:CommandSetttings
 {
-	public Transform PickUpTransform;
-	public Transform Anchor;
+	public Transform HostTransform { get; set; }
+	public Transform Anchor { get; set; }
+}
+
+public class PlayerMoveObjectPickupCommandSettings:MoveObjectPickupCommandSettings
+{
+	public PlayerMoveObjectPickupCommandSettings()
+	{
+		HostTransform=UnityEngine.Object.FindObjectOfType<PlayerLogic>().transform;
+		Anchor=UnityEngine.Object.FindObjectOfType<PlayerLogic>().PickUpHostAnchor;	
+	}
 }

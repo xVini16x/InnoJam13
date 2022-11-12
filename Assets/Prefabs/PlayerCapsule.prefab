@@ -270,6 +270,9 @@ MonoBehaviour:
   - Command: {fileID: 11400000, guid: 0e4381e22af7b284b810096db4a90638, type: 2}
     InputType: 0
     KeyCode: 101
+  - Command: {fileID: 11400000, guid: 4324610229508ed46be92ea76c648f30, type: 2}
+    InputType: 0
+    KeyCode: 101
   maxHealth: 2
 --- !u!54 &2671058355954380756
 Rigidbody:
