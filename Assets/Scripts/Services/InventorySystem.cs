@@ -15,16 +15,16 @@ public class InventorySystem : ScriptableObjectSystemBase
 
 	#region Public methods
 
-	public void CollectItem(ItemType itemType, int Amount = 1)
+	public void CollectItem(ItemType itemType, int amount = 1)
 	{
 		Func<Item, bool> condition = item => item.ItemType == itemType;
 		if (Items.Any(condition))
 		{
-			Items.FirstOrDefault(condition).Count += Amount;
+			Items.FirstOrDefault(condition).Count += amount;
 		}
 		else
 		{
-			Items.Add(new Item(itemType, Amount));
+			Items.Add(new Item(itemType, amount));
 		}
 	}
 

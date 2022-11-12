@@ -57,7 +57,7 @@ public class PlayerLogic : MonoBehaviour
         }
     }
 
-    private void SetHealth(float health)
+    public void SetHealth(float health)
     {
         _health = health;
         if (_health <= 0f)
