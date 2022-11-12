@@ -18,6 +18,7 @@ namespace UserInterface.View
 
         private void LifeArtifactHealthChanged(LifeArtifactHealthChanged data)
         {
+            health.transform.Shake();
             health.fillAmount = data.NewArtifactHealth / data.MaxArtifactHealth;
         }
     }

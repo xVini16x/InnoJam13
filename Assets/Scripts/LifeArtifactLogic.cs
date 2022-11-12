@@ -1,6 +1,7 @@
 using Events;
 using UniRx;
 using UnityEngine;
+using UserInterface.View;
 
 public class LifeArtifactLogic : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class LifeArtifactLogic : MonoBehaviour
 
     private void SetHealth(float health)
     {
+        transform.Shake();
         _health = health;
         MessageBroker.Default.Publish(new LifeArtifactHealthChanged{
             NewArtifactHealth = _health,
