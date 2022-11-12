@@ -414,10 +414,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7.008
       objectReference: {fileID: 0}
+    - target: {fileID: -3247313938292755297, guid: b6e651c66796c0445a5e2b8114c4f164,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1148870586065048559, guid: b6e651c66796c0445a5e2b8114c4f164,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b6e651c66796c0445a5e2b8114c4f164,
         type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861254705891799215, guid: b6e651c66796c0445a5e2b8114c4f164,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021475828731712600, guid: b6e651c66796c0445a5e2b8114c4f164,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6e651c66796c0445a5e2b8114c4f164, type: 3}
