@@ -112,8 +112,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 6685886067587410894}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
   m_Speed: 4
+  m_Radius: 1.07
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 160
@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4817656603034528, guid: 009bfdcbf43056e4baacce4494b47114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.199
       objectReference: {fileID: 0}
     - target: {fileID: 4817656603034528, guid: 009bfdcbf43056e4baacce4494b47114, type: 3}
       propertyPath: m_LocalRotation.w

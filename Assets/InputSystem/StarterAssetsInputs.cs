@@ -1,4 +1,6 @@
 using System;
+using Events;
+using UniRx;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -69,18 +71,36 @@ namespace StarterAssets
 		
 		private void OnApplicationFocus(bool hasFocus)
 		{
-		//	SetCursorState(cursorLocked);
+			SetCursorState(cursorLocked);
 		}
 
+		private bool playerIsDead;
 		private void SetCursorState(bool newState)
 		{
+			if (playerIsDead)
+			{
+				return;
+			}
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 
 		private void Start()
 		{
 			Cursor.visible = false;
+			
+				MessageBroker.Default.Receive<PlayerHealthChanged>()
+					.TakeUntilDestroy(this)
+					.Subscribe(OnPlayerHealthChanged);
 		}
+		
+		private void OnPlayerHealthChanged(PlayerHealthChanged data)
+		{
+			if (data.NewPlayerHealth <= 0)
+			{
+				playerIsDead = true;
+			}
+		}
+
 	}
 	
 }
