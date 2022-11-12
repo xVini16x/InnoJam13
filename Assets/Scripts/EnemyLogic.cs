@@ -7,7 +7,9 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private EnemyView enemyView;
-
+    [SerializeField] private float navMeshDistanceCheck = 0.5f;
+    [SerializeField] private Rigidbody _rigidbody;
+    private float lastCheckTime;
     private float _health;
     private bool isDead;
 
@@ -19,12 +21,23 @@ public class EnemyLogic : MonoBehaviour
     private void Update()
     {
         var artifact = FindObjectOfType<LifeArtifactLogic>();
-        if (artifact != null)
+        if (artifact != null && agent.enabled)
         {
             agent.SetDestination(artifact.transform.position);
         }
+        
+        if (!agent.enabled && _rigidbody.velocity.magnitude < 0.3f && Time.timeSinceLevelLoad - lastCheckTime > 1f &&
+            transform.parent == null)
+        {
+            lastCheckTime = Time.timeSinceLevelLoad;
+            if (NavMesh.SamplePosition(transform.position, out var hit, navMeshDistanceCheck, -1))
+            {
+                agent.enabled = true;
+                _rigidbody.isKinematic = true;
+            }
+        }
     }
-
+   
     private void OnCollisionStay(Collision other)
     {
         if (other.transform.GetComponent<AllyLogic>() != null)

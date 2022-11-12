@@ -9,10 +9,15 @@ public class ReplacementHandler : MonoBehaviour
 	public ItemType ItemType;
 	public GameObject unplaced;
 	public GameObject placed;
+	private bool kinematicDefault = true;
 
 	private void Start()
 	{
 		SetVisualsToPlaced();
+		if (TryGetComponent<Rigidbody>(out var rigidbody))
+		{
+			kinematicDefault = rigidbody.isKinematic;
+		}
 	}
 
 	private void SetVisualsToPlaced()
