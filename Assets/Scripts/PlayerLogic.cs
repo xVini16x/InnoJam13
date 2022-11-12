@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour
 {
+    [SerializeField] private List<PlayerInputMap> PlayerInputMaps;
     [SerializeField] private float maxHealth = 10f;
 
     private float _health;
@@ -9,6 +12,40 @@ public class PlayerLogic : MonoBehaviour
     private void Start()
     {
         _health = maxHealth;
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < PlayerInputMaps.Count; i++)
+        {
+            var current = PlayerInputMaps[i];
+            if (current.Command == null)
+            {
+                Debug.LogError("no command set");
+                continue;
+            }
+
+            switch (current.InputType)
+            {
+                case InputType.ButtonDown:
+                    if (Input.GetKeyDown(current.KeyCode))
+                    {
+                        current.Command.DoCommand();
+                    }
+
+                    break;
+                case InputType.ButtonUp:
+                    if (Input.GetKeyUp(current.KeyCode))
+                    {
+                        current.Command.DoCommand();
+                    }
+
+                    break;
+                default:
+                    Debug.LogError("not supported yet");
+                    break;
+            }
+        }
     }
 
     private void OnCollisionStay(Collision other)
@@ -28,4 +65,19 @@ public class PlayerLogic : MonoBehaviour
             Destroy(gameObject);
         }
     }
+}
+
+[Serializable]
+public class PlayerInputMap
+{
+    public ICommand Command;
+    public InputType InputType;
+    public KeyCode KeyCode;
+}
+
+public enum InputType
+{
+    ButtonDown,
+    ButtonUp,
+    ButtonHold,
 }
