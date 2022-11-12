@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Create chickens to defend your village from wolves!
+  m_text: Create chickens to defend this golden egg from wolves!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b87193cdb63e64b298973fd720d0dfe0, type: 2}
   m_sharedMaterial: {fileID: 3397354690412948781, guid: b87193cdb63e64b298973fd720d0dfe0,

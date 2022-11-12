@@ -272,7 +272,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Q: Build
 
-    E: Pick up chicken'
+    E: Pick up animal'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b87193cdb63e64b298973fd720d0dfe0, type: 2}
   m_sharedMaterial: {fileID: 3397354690412948781, guid: b87193cdb63e64b298973fd720d0dfe0,
