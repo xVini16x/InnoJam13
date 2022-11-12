@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace World
 {
-    public class EnemySpawnerLogic : MonoBehaviour
+    public class AllySpawnerLogic : MonoBehaviour
     {
-        [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private GameObject allyPrefab;
         [SerializeField] private float spawnIntervalSeconds;
 
         private void Start()
@@ -20,7 +20,7 @@ namespace World
 
         private void Spawn()
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity, null);
+            Instantiate(allyPrefab, transform.position, Quaternion.identity, null);
         }
     }
 }

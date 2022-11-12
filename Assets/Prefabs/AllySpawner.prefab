@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4457349207750830028}
   - component: {fileID: 326355240310580974}
+  - component: {fileID: 1764963675609411554}
   m_Layer: 0
   m_Name: AllySpawner
   m_TagString: Untagged
@@ -46,6 +47,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1764963675609411554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4737248891963970522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e49be4eea7149aba297a685fd170209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allyPrefab: {fileID: 9090600971508783200, guid: 51ca39bac89b942c0b3586621db5effa,
+    type: 3}
+  spawnIntervalSeconds: 3
 --- !u!1001 &7514006918523108495
 PrefabInstance:
   m_ObjectHideFlags: 0
