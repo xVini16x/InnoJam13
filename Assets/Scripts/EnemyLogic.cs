@@ -15,7 +15,10 @@ public class EnemyLogic : MonoBehaviour
 
     private void Update()
     {
-        var artifact = FindObjectOfType<LifeArtifactLogic>().transform.position;
-        agent.SetDestination(artifact);
+        var artifact = FindObjectOfType<LifeArtifactLogic>();
+        if (artifact != null)
+        {
+            agent.SetDestination(artifact.transform.position);
+        }
     }
 }
