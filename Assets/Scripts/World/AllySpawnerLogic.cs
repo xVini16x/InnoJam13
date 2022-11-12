@@ -8,6 +8,8 @@ namespace World
     {
         [SerializeField] private GameObject allyPrefab;
         [SerializeField] private float spawnIntervalSeconds;
+        public const  int maxAllyCount = 40;
+        public static int allyCount = 0;
         [SerializeField] private Transform spawnPosition;
 
         private void Start()
@@ -21,6 +23,12 @@ namespace World
 
         private void Spawn()
         {
+            if (allyCount >= maxAllyCount)
+            {
+                return;
+            }
+
+            allyCount++;
             Instantiate(allyPrefab, spawnPosition.position, Quaternion.identity, null);
         }
     }
