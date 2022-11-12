@@ -97,4 +97,57 @@ public class BuildingSystem : ScriptableObjectSystemBase
 		UnityEngine.GameObject.Instantiate(prefabForBuilding.PrefabForBuilding, placementPos, rot);
 		return true;
 	}
+
+	public bool TrySpwanPreview(bool canBuild, ItemType item, Vector3 placementPos, Quaternion rot)
+	{
+		placementPos.y = item.SpawnYPosition;
+		if (item.PrefabForBuilding.TryGetComponent<Collider>(out var collider))
+		{
+			var col = Physics.OverlapBox(placementPos, item.ExtentSizeForSpawning, rot);
+			for (int i = 0; i < col.Length; i++)
+			{
+				var current = col[i];
+				if (current.CompareTag("Player"))
+				{
+					continue;
+				}
+				if (current.isTrigger)
+				{
+					continue;
+				}
+				if (current.TryGetComponent<BuildableArea>(out var area))
+				{
+					continue;
+				}
+				else
+				{
+					canBuild = false;
+				}
+			}
+		}
+
+		var objectToSpawn = canBuild ? item.PreviewPrefabForBuildingSuccess : item.PreviewPrefabForBuildingFail;
+		
+		if (currenPreviewObject == null ||(currenPreviewObject!=null && currenPreviewSuccess !=canBuild))
+		{
+			if (currenPreviewObject != null)
+			{
+				Destroy(currenPreviewObject);
+			}
+			currenPreviewObject = UnityEngine.GameObject.Instantiate(objectToSpawn, placementPos, rot);
+			return true;
+		}
+		
+		currenPreviewObject.transform.SetPositionAndRotation(placementPos,rot);
+
+		return true;
+	}
+
+	private GameObject currenPreviewObject;
+	private bool currenPreviewSuccess;
+
+	public void KillPreview()
+	{
+		Destroy(currenPreviewObject);
+	}
 }

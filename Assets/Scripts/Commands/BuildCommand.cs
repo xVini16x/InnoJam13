@@ -13,6 +13,7 @@ public class BuildCommand : ICommand
 	private RaycastHit[] _raycastHits = new RaycastHit[5];
 	public override bool DoCommand(CommandExecuter executer)
 	{
+		_buildingSystem.KillPreview();
 		if (executer.GetExecuterType() == ExecuterType.Player)
 		{
 			_buildCommandSettings.Placement  = Camera.main.transform;

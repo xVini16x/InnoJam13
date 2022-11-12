@@ -4,6 +4,8 @@
 public class ItemType : ScriptableObject
 {
 	public GameObject PrefabForBuilding;
+	public GameObject PreviewPrefabForBuildingSuccess;
+	public GameObject PreviewPrefabForBuildingFail;
 	public float SpawnYPosition = -0.3f;
 	public Vector3 ExtentSizeForSpawning;
 }

@@ -58,7 +58,16 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
                             return;
                         }
                     }
-
+                    break;
+                case InputType.ButtonHold:
+                    if (Input.GetKey(current.KeyCode))
+                    {
+                        if (current.Command.DoCommand(this))
+                        {
+                            return;    
+                        }
+                        
+                    }
                     break;
                 default:
                     Debug.LogError("not supported yet");
