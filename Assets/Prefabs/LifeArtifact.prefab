@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1110230384937260192}
   - component: {fileID: 1110230384937260193}
   - component: {fileID: 8218676296851662648}
+  - component: {fileID: 8806961417513884732}
   m_Layer: 0
   m_Name: LifeArtifact
   m_TagString: Untagged
@@ -99,7 +100,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1110230384937260193
 MonoBehaviour:
@@ -130,6 +131,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &8806961417513884732
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110230384937260198}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3258435185989147515
 PrefabInstance:
   m_ObjectHideFlags: 0
