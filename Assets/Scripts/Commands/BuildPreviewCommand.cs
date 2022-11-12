@@ -11,11 +11,18 @@ public class BuildPreviewCommand : ICommand
 	public BuildingSystem BuildingSystem => _buildingSystem;
 	public InventorySystem InventorySystem => _inventorySystem;
 	private RaycastHit[] _raycastHits = new RaycastHit[5];
+	[SerializeField] private float rotationSpeed = 10f;
+	public  static Quaternion LastRotation = Quaternion.identity;
 	public override bool DoCommand(CommandExecuter executer)
 	{
 		if (executer.GetExecuterType() == ExecuterType.Player)
 		{
 			_buildCommandSettings.Placement  = Camera.main.transform;
+			var mouseWheel = Input.mouseScrollDelta.y;
+			if (mouseWheel != 0)
+			{
+				LastRotation *= Quaternion.Euler(new Vector3(0, 1, 0) * mouseWheel  * rotationSpeed);	
+			}
 		}
 
 		bool canBuild = true;
@@ -53,7 +60,7 @@ public class BuildPreviewCommand : ICommand
 			break;
 		}
 		
-		BuildingSystem.TrySpwanPreview(canBuild, _buildCommandSettings.ItemTypeToBuild, placementPosition, Quaternion.identity);
+		BuildingSystem.TrySpwanPreview(canBuild, _buildCommandSettings.ItemTypeToBuild, placementPosition, LastRotation);
 
 		return true; // can always do a preview
 	}

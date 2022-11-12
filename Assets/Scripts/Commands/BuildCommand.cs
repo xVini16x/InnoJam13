@@ -11,12 +11,15 @@ public class BuildCommand : ICommand
 	public BuildingSystem BuildingSystem => _buildingSystem;
 	public InventorySystem InventorySystem => _inventorySystem;
 	private RaycastHit[] _raycastHits = new RaycastHit[5];
+	
 	public override bool DoCommand(CommandExecuter executer)
 	{
 		_buildingSystem.KillPreview();
+		var placementRotation = BuildPreviewCommand.LastRotation;
 		if (executer.GetExecuterType() == ExecuterType.Player)
 		{
 			_buildCommandSettings.Placement  = Camera.main.transform;
+			
 		}
 		
 		if (InventorySystem.TryUseItem(_buildCommandSettings.RequiresItemType, _buildCommandSettings.RequiredAmount))
@@ -37,7 +40,7 @@ public class BuildCommand : ICommand
 					}
 
 					var placementPosition =  currentHit.point;
-					return BuildingSystem.TryToSpwanObject(_buildCommandSettings.ItemTypeToBuild, placementPosition, Quaternion.identity);
+					return BuildingSystem.TryToSpwanObject(_buildCommandSettings.ItemTypeToBuild, placementPosition, placementRotation);
 				}
 			}
 		}
