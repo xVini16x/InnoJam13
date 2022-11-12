@@ -10,6 +10,7 @@ public class AllyLogic : MonoBehaviour
     [SerializeField] private float navMeshDistanceCheck = 0.5f;
     [SerializeField] private AllyView view;
 
+    public NavMeshAgent NavMeshAgent => agent;
     private float lastCheckTime;
     private float _health;
     private bool isDead;

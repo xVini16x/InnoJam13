@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using World;
@@ -5,6 +6,7 @@ using World;
 public class EnemyLogic : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 10f;
+    [SerializeField] private float damageAfterThrow = 5f;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private EnemyView enemyView;
     [SerializeField] private float navMeshDistanceCheck = 0.5f;
@@ -32,12 +34,31 @@ public class EnemyLogic : MonoBehaviour
             lastCheckTime = Time.timeSinceLevelLoad;
             if (NavMesh.SamplePosition(transform.position, out var hit, navMeshDistanceCheck, -1))
             {
+                DealDamage(damageAfterThrow);
                 agent.enabled = true;
                 _rigidbody.isKinematic = true;
             }
         }
     }
-   
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!agent.enabled)
+        {
+            return;
+        }
+        if (!collision.transform.TryGetComponent<AllyLogic>(out var al))
+        {
+            return;
+        }
+
+        if (al.NavMeshAgent.enabled)
+        {
+            return;
+        }
+        Die();
+    }
+
     private void OnCollisionStay(Collision other)
     {
         if (other.transform.GetComponent<AllyLogic>() != null)
@@ -55,6 +76,10 @@ public class EnemyLogic : MonoBehaviour
 
             Die();
         }
+    }
+    public void DealDamage(float damage)
+    {
+        SetHealth(_health - damage);
     }
 
     private void Die()
