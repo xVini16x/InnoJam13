@@ -30,6 +30,10 @@ public class ReplacementHandler : MonoBehaviour
 	{
 		transform.SetParent(playerTransform, true);
 		transform.position = anchor;
+		if (transform.TryGetComponent<Rigidbody>(out var rigid))
+		{
+			rigid.isKinematic =true;
+		}
 		SetVisualsToUnplaced();
 		return this;
 	}
@@ -39,6 +43,19 @@ public class ReplacementHandler : MonoBehaviour
 		transform.parent = null;
 		transform.position = targetPosition;
 		SetVisualsToPlaced();
+		return true;
+	}
+
+	public bool CanThrow(Vector3 force)
+	{
+		if (!transform.TryGetComponent<Rigidbody>(out var rigid))
+		{
+			return false;
+		}
+		rigid.isKinematic =false;
+		transform.parent = null;
+		SetVisualsToPlaced();
+		rigid.AddForce(force, ForceMode.Impulse);
 		return true;
 	}
 }

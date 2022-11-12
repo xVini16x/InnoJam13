@@ -24,6 +24,25 @@ public class BuildingSystem : ScriptableObjectSystemBase
 		return false;
 	}
 
+	public bool TryToThrowObject(Vector3 force, out ReplacementHandler replacementHandler)
+	{
+		replacementHandler = equippedObject;
+		
+		if (equippedObject == null)
+		{
+			Debug.LogError("no equiped item");
+			return false;
+		}
+		
+		if (equippedObject.CanThrow(force))
+		{
+			equippedObject = null;
+			return true;
+		}
+
+		return false;
+	}
+
 	public bool TryGetReplaceableObject(Transform pickUpTransform, Transform pickUpAnchor, out ReplacementHandler replacementHandler, float PickUpRadius = 3f)
 	{
 		replacementHandler = null;

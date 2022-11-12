@@ -14,6 +14,11 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
         return ExecuterType.Player;
     }
 
+    public Transform GetExecuterTransform()
+    {
+        return this.transform;
+    }
+
     private void Start()
     {
         _health = maxHealth;
