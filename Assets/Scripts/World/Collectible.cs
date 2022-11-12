@@ -12,6 +12,7 @@ namespace World
             if (other.TryGetComponent(out PlayerLogic _))
             {
                 inventorySystem.CollectItem(itemType);
+                Destroy(gameObject);
             }
         }
     }
