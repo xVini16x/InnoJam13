@@ -2,83 +2,93 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Events;
+using UniRx;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "InventorySystem", menuName = "ScriptableObjects/InventorySystem", order = 1)]
 public class InventorySystem : ScriptableObjectSystemBase
 {
-	#region Public Fields
+    #region Public Fields
 
-	public List<Item> Items;
+    public List<Item> Items;
 
-	#endregion
+    #endregion
 
-	#region Public methods
+    #region Public methods
 
-	public void CollectItem(ItemType itemType, int amount = 1)
-	{
-		Func<Item, bool> condition = item => item.ItemType == itemType;
-		if (Items.Any(condition))
-		{
-			Items.FirstOrDefault(condition).Count += amount;
-		}
-		else
-		{
-			Items.Add(new Item(itemType, amount));
-		}
-	}
+    public void CollectItem(ItemType itemType, int amount = 1)
+    {
+        Func<Item, bool> condition = item => item.ItemType == itemType;
+        if (Items.Any(condition))
+        {
+            Items.FirstOrDefault(condition).Count += amount;
+        }
+        else
+        {
+            Items.Add(new Item(itemType, amount));
+        }
 
-	public bool TryUseItem(ItemType itemType, int amount = 1)
-	{
-		Func<Item, bool> condition = item => item.ItemType == itemType;
-		if (!Items.Any(condition))
-		{
-			Debug.LogError("We dont have that item currently");
-			return false;
-		}
+        var currentAmount = Items.FirstOrDefault(condition)!.Count += amount;
 
-		{
-			var item = Items.FirstOrDefault(condition);
-			if (item.Count < amount)
-			{
-				Debug.LogError("we dont have enough items");
-				return false;
-			}
+        MessageBroker.Default.Publish(new ItemAmountChanged
+        {
+            ItemType = itemType,
+            NewCurrency = currentAmount,
+        });
+    }
 
-			item.Count -= amount;
-			return true;
-		}
-	}
+    public bool TryUseItem(ItemType itemType, int amount = 1)
+    {
+        Func<Item, bool> condition = item => item.ItemType == itemType;
+        if (!Items.Any(condition))
+        {
+            Debug.LogError("We dont have that item currently");
+            return false;
+        }
 
-	#endregion
+        {
+            var item = Items.FirstOrDefault(condition);
+            if (item.Count < amount)
+            {
+                Debug.LogError("we dont have enough items");
+                return false;
+            }
 
-	#region Private methods
+            item.Count -= amount;
+            return true;
+        }
+    }
 
-	void Init()
-	{
-		Items = new List<Item>();
-	}
+    #endregion
 
-	#endregion
+    #region Private methods
+
+    void Init()
+    {
+        Items = new List<Item>();
+    }
+
+    #endregion
 }
 
 [Serializable]
 public class Item
 {
-	#region Public Fields
+    #region Public Fields
 
-	public int Count;
-	public ItemType ItemType;
+    public int Count;
+    public ItemType ItemType;
 
-	#endregion
+    #endregion
 
-	#region Constructors
+    #region Constructors
 
-	public Item(ItemType itemType, int count)
-	{
-		ItemType = itemType;
-		Count = count;
-	}
+    public Item(ItemType itemType, int count)
+    {
+        ItemType = itemType;
+        Count = count;
+    }
 
-	#endregion
+    #endregion
 }
