@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Events;
+using UniRx;
 using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour, CommandExecuter
@@ -9,6 +11,7 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
     [SerializeField] public Transform PickUpHostAnchor;
 
     private float _health;
+
     public ExecuterType GetExecuterType()
     {
         return ExecuterType.Player;
@@ -21,7 +24,7 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
 
     private void Start()
     {
-        _health = maxHealth;
+        SetHealth(maxHealth);
     }
 
     private void Update()
@@ -42,9 +45,8 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
                     {
                         if (current.Command.DoCommand(this))
                         {
-                            return;    
+                            return;
                         }
-                        
                     }
 
                     break;
@@ -53,9 +55,8 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
                     {
                         if (current.Command.DoCommand(this))
                         {
-                            return;    
+                            return;
                         }
-                        
                     }
 
                     break;
@@ -78,6 +79,12 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
     public void SetHealth(float health)
     {
         _health = health;
+        MessageBroker.Default.Publish(new PlayerHealthChanged
+        {
+            NewPlayerHealth = _health,
+            MaxPlayerHealth = maxHealth
+        });
+
         if (_health <= 0f)
         {
             Destroy(gameObject);
