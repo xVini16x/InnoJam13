@@ -9,7 +9,7 @@ namespace UserInterface.View
     {
         [SerializeField] private Slider playerHealth;
 
-        private void Start()
+        private void Awake()
         {
             MessageBroker.Default.Receive<PlayerHealthChanged>()
                 .TakeUntilDestroy(this)

@@ -12,16 +12,6 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
 
     private float _health;
 
-    public ExecuterType GetExecuterType()
-    {
-        return ExecuterType.Player;
-    }
-
-    public Transform GetExecuterTransform()
-    {
-        return this.transform;
-    }
-
     private void Start()
     {
         SetHealth(maxHealth);
@@ -83,6 +73,16 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
             // TODO: let enemy logic configure their attack strength
             SetHealth(_health - 2f * Time.deltaTime);
         }
+    }
+
+    public ExecuterType GetExecuterType()
+    {
+        return ExecuterType.Player;
+    }
+
+    public Transform GetExecuterTransform()
+    {
+        return this.transform;
     }
 
     public void SetHealth(float health)

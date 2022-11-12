@@ -1,3 +1,5 @@
+using Events;
+using UniRx;
 using UnityEngine;
 
 public class LifeArtifactLogic : MonoBehaviour
@@ -21,6 +23,10 @@ public class LifeArtifactLogic : MonoBehaviour
 
     private void SetHealth(float health)
     {
+        MessageBroker.Default.Publish(new LifeArtifactHealthChanged{
+            NewArtifactHealth = _health,
+            MaxArtifactHealth = maxHealth
+        });
         _health = health;
         if (_health <= 0f)
         {
