@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Collider))] //triggerCOllider for pickup logic
@@ -26,14 +27,19 @@ public class ReplacementHandler : MonoBehaviour
 		unplaced.SetActive(true);
 	}
 
-	public ReplacementHandler PickUpIfPossible(Transform playerTransform, Vector3 anchor)
+	public ReplacementHandler PickUpIfPossible(Transform parent, Vector3 position)
 	{
-		transform.SetParent(playerTransform, true);
-		transform.position = anchor;
+		transform.SetParent(parent, true);
+		transform.position = position;
 		if (transform.TryGetComponent<Rigidbody>(out var rigid))
 		{
 			rigid.isKinematic =true;
 		}
+		if (transform.TryGetComponent<NavMeshAgent>(out var navMeshAgent))
+		{
+			navMeshAgent.enabled =false;
+		}
+		
 		SetVisualsToUnplaced();
 		return this;
 	}
@@ -56,6 +62,11 @@ public class ReplacementHandler : MonoBehaviour
 		transform.parent = null;
 		SetVisualsToPlaced();
 		rigid.AddForce(force, ForceMode.Impulse);
+		if (transform.TryGetComponent<NavMeshAgent>(out var navMeshAgent))
+		{
+			//navMeshAgent.enabled =true;
+		}
+		Debug.Log("DId throw "+transform.name);
 		return true;
 	}
 }
