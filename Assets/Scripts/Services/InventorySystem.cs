@@ -29,7 +29,7 @@ public class InventorySystem : ScriptableObjectSystemBase
             Items.Add(new Item(itemType, amount));
         }
 
-        var currentAmount = Items.FirstOrDefault(condition)!.Count += amount;
+        var currentAmount = Items.FirstOrDefault(condition)!.Count;
 
         MessageBroker.Default.Publish(new ItemAmountChanged
         {
