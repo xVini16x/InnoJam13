@@ -12,6 +12,7 @@ public class AllyLogic : MonoBehaviour
     [SerializeField] private AllyView view;
 
     public NavMeshAgent NavMeshAgent => agent;
+    public Rigidbody Rigid => _rigidbody;
     private float lastCheckTime;
     private float _health;
     private bool isDead;

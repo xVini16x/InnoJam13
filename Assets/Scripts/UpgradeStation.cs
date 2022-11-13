@@ -14,6 +14,7 @@ public class UpgradeStation : MonoBehaviour
     [SerializeField] private int costAmount;
     [SerializeField] private InventorySystem _inventorySystem;
     [SerializeField] private GameObject blocker;
+    [SerializeField] private GameObject BiggerChicken;
 
     private void Update()
     {
@@ -34,23 +35,28 @@ public class UpgradeStation : MonoBehaviour
         {
             isValidTrigger = true;
         }
-        if (other.TryGetComponent<EnemyLogic>(out var enemyLogic))
+
+        EnemyLogic enemyLogic=null;
+        if (_upgradeType != UpgradeType.UpgradeChicken)
         {
-            isValidTrigger = true;
-        }
-        if (other.TryGetComponent<NavMeshAgent>(out var agent))
-        {
-            if (!agent.enabled && other.transform.parent!=null)
+            if (other.TryGetComponent<EnemyLogic>(out  enemyLogic))
             {
-                isValidTrigger = false;
+                isValidTrigger = true;
+            }
+            if (other.TryGetComponent<NavMeshAgent>(out var agent))
+            {
+                if (!agent.enabled && other.transform.parent!=null)
+                {
+                    isValidTrigger = false;
+                }
+            }
+            
+            if (other.CompareTag("Player"))
+            {
+                isValidTrigger = true;
             }
         }
-
-        if (other.CompareTag("Player"))
-        {
-            isValidTrigger = true;
-        }
-
+        
         if (!isValidTrigger)
         {
             return;
@@ -65,7 +71,7 @@ public class UpgradeStation : MonoBehaviour
                                           });
             return;
         }
-        Upgrade();
+        
         if (enemyLogic != null)
         {
             enemyLogic.Die();
@@ -73,9 +79,20 @@ public class UpgradeStation : MonoBehaviour
 
         if (allylogic != null)
         {
+            if (_upgradeType == UpgradeType.UpgradeChicken)
+            {
+                rigidVelocity= allylogic.Rigid.velocity;
+                position = allylogic.transform.position;
+                rotation = allylogic.transform.rotation;
+            }
             allylogic.Die();
         }
+        Upgrade();
     }
+
+    private Vector3 rigidVelocity;
+    private Vector3 position;
+    private Quaternion rotation;
 
     private void Upgrade()
     {
@@ -83,6 +100,20 @@ public class UpgradeStation : MonoBehaviour
         {
            case UpgradeType.ChickenCapacity:
                AllySpawnerLogic.maxAllyCount += 2;
+               break;
+           case UpgradeType.UpgradeChicken:
+               var go=Instantiate(BiggerChicken, null);
+               AllySpawnerLogic.allyCount++;
+               if (go.TryGetComponent<Rigidbody>(out var rigidbody))
+               {
+                   rigidbody.velocity = rigidVelocity;
+               }
+               if (go.TryGetComponent<NavMeshAgent>(out var navMeshAgent))
+               {
+                   navMeshAgent.enabled = false;
+               }
+               go.transform.position = position;
+               go.transform.rotation = rotation;
                break;
         }
 
@@ -98,5 +129,6 @@ public class UpgradeStation : MonoBehaviour
 
 public enum UpgradeType
 {
-    ChickenCapacity
+    ChickenCapacity,
+    UpgradeChicken
 }
