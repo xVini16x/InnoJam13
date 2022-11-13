@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Events;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLogic : MonoBehaviour, CommandExecuter
 {
@@ -23,6 +24,12 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            var activeScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(activeScene, LoadSceneMode.Single);
+        }
+
         for (int i = 0; i < PlayerInputMaps.Count; i++)
         {
             var current = PlayerInputMaps[i];
@@ -52,16 +59,17 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
                             return;
                         }
                     }
+
                     break;
                 case InputType.ButtonHold:
                     if (Input.GetKey(current.KeyCode))
                     {
                         if (current.Command.DoCommand(this))
                         {
-                            return;    
+                            return;
                         }
-                        
                     }
+
                     break;
                 default:
                     Debug.LogError("not supported yet");
@@ -103,7 +111,7 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
             Destroy(gameObject);
         }
     }
-    
+
     private void HealthChanged(PlayerHealthChanged data)
     {
         if (data.NewPlayerHealth <= 0)
