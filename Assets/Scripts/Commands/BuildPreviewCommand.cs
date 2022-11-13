@@ -27,7 +27,7 @@ public class BuildPreviewCommand : ICommand
 
 		bool canBuild = true;
 
-		if (!InventorySystem.TryUseItem(_buildCommandSettings.RequiresItemType, _buildCommandSettings.RequiredAmount))
+		if (!InventorySystem.CouldUseItem(_buildCommandSettings.RequiresItemType, _buildCommandSettings.RequiredAmount))
 		{
 			canBuild = false;
 		}

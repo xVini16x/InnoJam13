@@ -56,6 +56,12 @@ public class InventorySystem : ScriptableObjectSystemBase
             }
 
             item.Count -= amount;
+            
+            MessageBroker.Default.Publish(new ItemAmountChanged
+                                          {
+                                              ItemType = itemType,
+                                              NewCurrency = item.Count,
+                                          });
             return true;
         }
     }
@@ -70,6 +76,27 @@ public class InventorySystem : ScriptableObjectSystemBase
     }
 
     #endregion
+    
+    public bool CouldUseItem(ItemType itemType, int amount = 1)
+    {
+        Func<Item, bool> condition = item => item.ItemType == itemType;
+        if (!Items.Any(condition))
+        {
+            Debug.LogError("We dont have that item currently");
+            return false;
+        }
+
+        {
+            var item = Items.FirstOrDefault(condition);
+            if (item.Count < amount)
+            {
+                Debug.LogError("we dont have enough items");
+                return false;
+            }
+            
+            return true;
+        }
+    }
 }
 
 [Serializable]

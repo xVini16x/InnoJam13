@@ -22,7 +22,7 @@ public class BuildCommand : ICommand
 			
 		}
 		
-		if (InventorySystem.TryUseItem(_buildCommandSettings.RequiresItemType, _buildCommandSettings.RequiredAmount))
+		if (InventorySystem.CouldUseItem(_buildCommandSettings.RequiresItemType, _buildCommandSettings.RequiredAmount))
 		{
 			
 			if (Physics.RaycastNonAlloc(_buildCommandSettings.Placement.position , _buildCommandSettings.Placement.forward, _raycastHits)>0)
@@ -40,7 +40,12 @@ public class BuildCommand : ICommand
 					}
 
 					var placementPosition =  currentHit.point;
-					return BuildingSystem.TryToSpwanObject(_buildCommandSettings.ItemTypeToBuild, placementPosition, placementRotation);
+					var didBuild= BuildingSystem.TryToSpwanObject(_buildCommandSettings.ItemTypeToBuild, placementPosition, placementRotation);
+					if (didBuild)
+					{
+						InventorySystem.TryUseItem(_buildCommandSettings.RequiresItemType, _buildCommandSettings.RequiredAmount) ;
+						return true;
+					}
 				}
 			}
 		}
