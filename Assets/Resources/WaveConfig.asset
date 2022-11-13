@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaveConfig
   m_EditorClassIdentifier: 
   Waves:
-  - PrewarmTime: 5
+  - PrewarmTime: 10
     EnemyCount: 3
   - PrewarmTime: 20
     EnemyCount: 5
