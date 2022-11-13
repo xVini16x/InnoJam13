@@ -13,6 +13,7 @@ public class EnemyLogic : MonoBehaviour
     private float lastCheckTime;
     private float _health;
     private bool isDead;
+    public bool CanDealDamage => agent.enabled;
 
     private void Start()
     {
@@ -60,6 +61,10 @@ public class EnemyLogic : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
+        if (!agent.enabled)
+        {
+            return;
+        }
         if (other.transform.GetComponent<AllyLogic>() != null)
         {
             // TODO: let enemy logic configure their attack strength

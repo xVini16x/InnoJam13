@@ -15,8 +15,9 @@ public class LifeArtifactLogic : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.GetComponent<EnemyLogic>() != null)
+        if (other.transform.TryGetComponent<EnemyLogic>(out var el))
         {
+            if(!el.CanDealDamage){return;}
             // TODO: let enemy logic configure their attack strength
             SetHealth(_health - 2f * Time.deltaTime);
         }
