@@ -4719,18 +4719,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198599621314974290, guid: deeb8cafca0af284e92a057261d17723,
         type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 198599621314974290, guid: deeb8cafca0af284e92a057261d17723,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 198599621314974290, guid: deeb8cafca0af284e92a057261d17723,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198599621314974290, guid: deeb8cafca0af284e92a057261d17723,
+        type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1
       value: 16191
       objectReference: {fileID: 0}
     - target: {fileID: 198599621314974290, guid: deeb8cafca0af284e92a057261d17723,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 198599621314974290, guid: deeb8cafca0af284e92a057261d17723,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[1].countCurve.scalar
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deeb8cafca0af284e92a057261d17723, type: 3}
