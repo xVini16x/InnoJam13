@@ -58,6 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4457349207750830028}
   - component: {fileID: 1764963675609411554}
+  - component: {fileID: 1648268247800849172}
   m_Layer: 0
   m_Name: AllySpawner
   m_TagString: Untagged
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4737248891963970522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -3.6900167, y: 0.49396926, z: 9.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -84,7 +85,7 @@ Transform:
   - {fileID: 4598590547666365479}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1764963675609411554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +103,19 @@ MonoBehaviour:
   - {fileID: 4329658548984124410, guid: afc8bc95c298e400c80d6bad02428c08, type: 3}
   spawnIntervalSeconds: 3
   spawnPosition: {fileID: 1378420854338649467}
+--- !u!65 &1648268247800849172
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4737248891963970522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.98, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5135359674047656785
 GameObject:
   m_ObjectHideFlags: 0

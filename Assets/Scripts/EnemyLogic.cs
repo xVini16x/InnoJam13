@@ -92,6 +92,9 @@ public class EnemyLogic : MonoBehaviour
 
     public void Die()
     {
+        agent.enabled = false;
+        _rigidbody.isKinematic = true;
+        _rigidbody.velocity=Vector3.zero;
         WaveManager.EnemyDeaths++;
         isDead = true;
         enemyView.Die();

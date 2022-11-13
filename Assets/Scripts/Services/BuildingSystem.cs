@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using World;
 
 [CreateAssetMenu(fileName = "BuildingSystem", menuName = "ScriptableObjects/BuildingSystem", order = 1)]
 public class BuildingSystem : ScriptableObjectSystemBase
@@ -108,10 +109,15 @@ public class BuildingSystem : ScriptableObjectSystemBase
 		placementPos.y = item.SpawnYPosition;
 		if (item.PrefabForBuilding.TryGetComponent<Collider>(out var collider))
 		{
-			var col = Physics.OverlapBox(placementPos, item.ExtentSizeForSpawning, rot);
+			var col = Physics.OverlapBox(placementPos, item.ExtentSizeForSpawning, rot, -1, QueryTriggerInteraction.Collide);
 			for (int i = 0; i < col.Length; i++)
 			{
 				var current = col[i];
+				if (current.TryGetComponent<AllySpawnerLogic>(out var _))
+				{
+					canBuild = false;
+					break;
+				}
 				if (current.CompareTag("Player"))
 				{
 					continue;
@@ -127,6 +133,7 @@ public class BuildingSystem : ScriptableObjectSystemBase
 				else
 				{
 					canBuild = false;
+					break;
 				}
 			}
 		}
@@ -139,12 +146,14 @@ public class BuildingSystem : ScriptableObjectSystemBase
 			{
 				Destroy(currenPreviewObject);
 			}
-			currenPreviewObject = UnityEngine.GameObject.Instantiate(objectToSpawn, placementPos, rot);
+			currenPreviewObject = UnityEngine.GameObject.Instantiate(objectToSpawn, placementPos, Quaternion.identity);
+			currenPreviewObject.transform.GetChild(0).localRotation = rot;
+			currenPreviewSuccess = canBuild;
 			return true;
 		}
 		
-		currenPreviewObject.transform.SetPositionAndRotation(placementPos,rot);
-
+		currenPreviewObject.transform.position = placementPos;
+		currenPreviewObject.transform.GetChild(0).localRotation = rot;
 		return true;
 	}
 

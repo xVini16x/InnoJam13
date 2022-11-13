@@ -53,9 +53,6 @@ public class BuildPreviewCommand : ICommand
 			{
 				continue;
 			}
-
-			canBuild = true;
-
 			placementPosition =  currentHit.point;
 			break;
 		}
