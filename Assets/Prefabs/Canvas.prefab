@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 6980980248717742534}
   - component: {fileID: 4158141402389808207}
   - component: {fileID: 6362242206835763259}
+  - component: {fileID: 8420540296965643194}
   m_Layer: 5
   m_Name: LifeArtifactView
   m_TagString: Untagged
@@ -186,7 +187,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0
+  m_FillAmount: 0.573
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -204,6 +205,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 4158141402389808207}
+--- !u!114 &8420540296965643194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749471446140445204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectFactor: 0.532
+  m_Width: 0.25
+  m_Rotation: 135
+  m_Softness: 1
+  m_Brightness: 1
+  m_Gloss: 0.285
+  m_EffectArea: 0
+  m_Player:
+    play: 1
+    initialPlayDelay: 0
+    duration: 2
+    loop: 1
+    loopDelay: 3
+    updateMode: 0
 --- !u!1 &2610578955032595455
 GameObject:
   m_ObjectHideFlags: 0
