@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5b07b105c647d398312f01e9630cff, type: 3}
+  m_Name: WaveConfig
+  m_EditorClassIdentifier: 
+  Waves:
+  - PrewarmTime: 30
+    EnemyCount: 3
+  - PrewarmTime: 20
+    EnemyCount: 5
+  - PrewarmTime: 20
+    EnemyCount: 7
+  - PrewarmTime: 20
+    EnemyCount: 9
+  - PrewarmTime: 20
+    EnemyCount: 13

@@ -88,6 +88,7 @@ public class EnemyLogic : MonoBehaviour
 
     private void Die()
     {
+        WaveManager.EnemyDeaths++;
         isDead = true;
         enemyView.Die();
         Destroy(gameObject, 2f);
