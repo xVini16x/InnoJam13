@@ -37,6 +37,11 @@ public class AllyView : MonoBehaviour
             return;
         }
 
+        if (collision.transform.TryGetComponent<AllyView>(out var _))
+        {
+            return;
+        }
+
         if (collision.transform.CompareTag("Player"))
         {
             return;
