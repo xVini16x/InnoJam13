@@ -10,7 +10,7 @@ namespace World
 
         private void Start()
         {
-            MessageBroker.Default.Receive<SpawnParticle>().TakeUntilDestroy(gameObject).Subscribe(ShowUi);
+            MessageBroker.Default.Receive<SpawnParticle>().TakeUntilDestroy(gameObject).Subscribe(ShowParticle);
         }
 
         [System.Serializable]
@@ -20,7 +20,7 @@ namespace World
             public GameObject particles;
         }
 
-        private void ShowUi(SpawnParticle particles)
+        private void ShowParticle(SpawnParticle particles)
         {
             foreach (var particleConfig in particleConfigs)
             {

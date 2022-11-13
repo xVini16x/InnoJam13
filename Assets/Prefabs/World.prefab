@@ -188,6 +188,8 @@ MonoBehaviour:
   - type: 1
     particles: {fileID: 1889919486439536, guid: 35ad08272de78064cbd645a70f31f454,
       type: 3}
+  - type: 2
+    particles: {fileID: 135726, guid: fa0f45d143def4e4188900695d955614, type: 3}
 --- !u!1 &7038023593206137023
 GameObject:
   m_ObjectHideFlags: 0

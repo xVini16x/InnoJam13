@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 using World;
@@ -32,7 +31,7 @@ public class EnemyLogic : MonoBehaviour
             transform.parent == null)
         {
             lastCheckTime = Time.timeSinceLevelLoad;
-            if (NavMesh.SamplePosition(transform.position, out var hit, navMeshDistanceCheck, -1))
+            if (NavMesh.SamplePosition(transform.position, out _, navMeshDistanceCheck, -1))
             {
                 DealDamage(damageAfterThrow);
                 agent.enabled = true;
@@ -64,7 +63,7 @@ public class EnemyLogic : MonoBehaviour
         if (other.transform.GetComponent<AllyLogic>() != null)
         {
             // TODO: let enemy logic configure their attack strength
-            SetHealth(_health - 2f * Time.deltaTime);
+            DealDamage(2f * Time.deltaTime);
         }
     }
 
@@ -77,8 +76,13 @@ public class EnemyLogic : MonoBehaviour
             Die();
         }
     }
-    public void DealDamage(float damage)
+
+    private void DealDamage(float damage)
     {
+        if (Random.value < 0.1f)
+        {
+            enemyView.OnDamage();
+        }
         SetHealth(_health - damage);
     }
 

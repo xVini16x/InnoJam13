@@ -10,6 +10,15 @@ namespace World
 
         private static readonly int Die1 = Animator.StringToHash("Die");
 
+        public void OnDamage()
+        {
+            MessageBroker.Default.Publish(new SpawnParticle
+                {
+                    Position = transform.position,
+                    Type = ParticleType.FightAction
+                });
+        }
+
         public void Die()
         {
             characterAnimation.SetTrigger(Die1);
