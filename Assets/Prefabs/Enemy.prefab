@@ -102,8 +102,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &3886142493357735807
@@ -115,7 +115,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6685886067587410894}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.07
+  m_Radius: 0.7
   m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  damageAfterThrow: 5
   agent: {fileID: 3886142493357735807}
   enemyView: {fileID: 4610199666142785364}
   navMeshDistanceCheck: 0.5
