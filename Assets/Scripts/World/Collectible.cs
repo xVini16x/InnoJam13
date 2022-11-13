@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace World
@@ -6,6 +8,13 @@ namespace World
     {
         [SerializeField] private InventorySystem inventorySystem;
         [SerializeField] private ItemType itemType;
+
+        private void Start()
+        {
+            var scale = transform.localScale;
+            var animationSeconds = 0.2f;
+            transform.DOScale(scale, animationSeconds).From(0f).SetEase(Ease.OutBack);
+        }
 
         private void OnTriggerEnter(Collider other)
         {
