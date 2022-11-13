@@ -12,6 +12,11 @@ public class BuildingSystem : ScriptableObjectSystemBase
 
 	#region Public methods
 
+	public override void Init()
+	{
+		
+	}
+
 	public bool TryToPlaceObject(Transform target)
 	{
 		var targetPosition = target.position;

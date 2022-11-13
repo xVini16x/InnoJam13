@@ -63,8 +63,8 @@ public class InventorySystem : ScriptableObjectSystemBase
     #endregion
 
     #region Private methods
-
-    void Init()
+    
+    public override void Init()
     {
         Items = new List<Item>();
     }
