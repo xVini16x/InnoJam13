@@ -8,5 +8,15 @@ public class DeathZone : MonoBehaviour
         {
             player.SetHealth(0);
         }
+        
+        if (other.TryGetComponent(out EnemyLogic e))
+        {
+            e.Die();
+        }
+        
+        if (other.TryGetComponent(out AllyLogic a))
+        {
+            a.Die();
+        }
     }
 }
