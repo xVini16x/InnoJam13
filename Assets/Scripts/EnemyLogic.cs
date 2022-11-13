@@ -18,14 +18,26 @@ public class EnemyLogic : MonoBehaviour
     private void Start()
     {
         _health = maxHealth;
+        target = FindObjectOfType<LifeArtifactLogic>().gameObject;
+        if (UnityEngine.Random.Range(0, 3) == 0)
+        {
+            var house=FindObjectOfType<AllySpawnerLogic>();
+
+            if (house != null)
+            {
+                target = house.gameObject;
+            }
+             
+        }
     }
 
+    private GameObject target;
     private void Update()
     {
-        var artifact = FindObjectOfType<LifeArtifactLogic>();
-        if (artifact != null && agent.enabled)
+        
+        if (target != null && agent.enabled)
         {
-            agent.SetDestination(artifact.transform.position);
+            agent.SetDestination(target.transform.position);
         }
         
         if (!agent.enabled && _rigidbody.velocity.magnitude < 0.3f && Time.timeSinceLevelLoad - lastCheckTime > 1f &&
