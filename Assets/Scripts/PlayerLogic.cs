@@ -12,6 +12,7 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
     [SerializeField] public Transform PickUpHostAnchor;
 
     private float _health;
+    private bool _isDead;
 
     private void Start()
     {
@@ -108,7 +109,7 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
 
         if (_health <= 0f)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -122,6 +123,8 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
 
     private void Die()
     {
+        if (_isDead) return;
+        _isDead = true;
         MessageBroker.Default.Publish(new PlayerDeath());
         transform.position = startPosition;
         SetHealth(maxHealth);
