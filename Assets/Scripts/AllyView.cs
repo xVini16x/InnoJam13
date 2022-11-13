@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Events;
 using UniRx;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class AllyView : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private NavMeshAgent navMesh;
+    [SerializeField] private Transform view;
 
     private static readonly int Walk = Animator.StringToHash("Walk");
 
@@ -15,6 +17,10 @@ public class AllyView : MonoBehaviour
     {
         animator.SetBool(Walk, true);
         animator.keepAnimatorControllerStateOnDisable = true;
+
+        var scale = transform.localScale;
+        var animationSeconds = 0.2f;
+        view.DOScale(scale, animationSeconds).From(0f).SetEase(Ease.OutBack);
     }
 
     public void Die()
@@ -28,10 +34,11 @@ public class AllyView : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (navMesh.enabled || transform.parent!=null)
+        if (navMesh.enabled || transform.parent != null)
         {
             return;
         }
+
         if (collision.transform.TryGetComponent<BuildableArea>(out var area))
         {
             return;
@@ -46,10 +53,11 @@ public class AllyView : MonoBehaviour
         {
             return;
         }
+
         MessageBroker.Default.Publish(new SpawnParticle
-                                      {
-                                          Position = transform.position,
-                                          Type = ParticleType.FeatherExplosion
-                                      });
+        {
+            Position = transform.position,
+            Type = ParticleType.FeatherExplosion
+        });
     }
 }

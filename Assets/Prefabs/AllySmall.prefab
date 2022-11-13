@@ -75,6 +75,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2337698508231646363}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2341467557803847425 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4429102427960218, guid: ca9fda2f4d77c4d4f88d4ed8b939f69b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2337698508231646363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2388430664942351799 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95777776565643564, guid: ca9fda2f4d77c4d4f88d4ed8b939f69b,
@@ -98,6 +104,11 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3724748756482603410, guid: 51ca39bac89b942c0b3586621db5effa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5614334764472030959, guid: 51ca39bac89b942c0b3586621db5effa,
         type: 3}
       propertyPath: m_IsActive
@@ -108,6 +119,11 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7682293711196087123, guid: 51ca39bac89b942c0b3586621db5effa,
+        type: 3}
+      propertyPath: view
+      value: 
+      objectReference: {fileID: 2341467557803847425}
     - target: {fileID: 7682293711196087123, guid: 51ca39bac89b942c0b3586621db5effa,
         type: 3}
       propertyPath: animator
