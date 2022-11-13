@@ -1,12 +1,13 @@
 using System;
 using UniRx;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace World
 {
     public class AllySpawnerLogic : MonoBehaviour
     {
-        [SerializeField] private GameObject allyPrefab;
+        [SerializeField] private GameObject[] allyPrefabs;
         [SerializeField] private float spawnIntervalSeconds;
         public const  int maxAllyCount = 40;
         public static int allyCount = 0;
@@ -29,7 +30,8 @@ namespace World
             }
 
             allyCount++;
-            Instantiate(allyPrefab, spawnPosition.position, Quaternion.identity, null);
+            var randomIndex = Random.Range(0, allyPrefabs.Length);
+            Instantiate(allyPrefabs[randomIndex], spawnPosition.position, Quaternion.identity, null);
         }
     }
 }

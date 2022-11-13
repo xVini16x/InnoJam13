@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e49be4eea7149aba297a685fd170209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allyPrefab: {fileID: 9090600971508783200, guid: 51ca39bac89b942c0b3586621db5effa,
-    type: 3}
+  allyPrefabs:
+  - {fileID: 9090600971508783200, guid: 51ca39bac89b942c0b3586621db5effa, type: 3}
+  - {fileID: 4329658548984124410, guid: afc8bc95c298e400c80d6bad02428c08, type: 3}
   spawnIntervalSeconds: 3
   spawnPosition: {fileID: 1378420854338649467}
 --- !u!1 &5135359674047656785
