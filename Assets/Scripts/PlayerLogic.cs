@@ -108,12 +108,13 @@ public class PlayerLogic : MonoBehaviour, CommandExecuter
     {
         if (data.NewPlayerHealth <= 0)
         {
-            Respawn();
+            Die();
         }
     }
 
-    private void Respawn()
+    private void Die()
     {
+        MessageBroker.Default.Publish(new PlayerDeath());
         transform.position = startPosition;
         SetHealth(maxHealth);
     }
