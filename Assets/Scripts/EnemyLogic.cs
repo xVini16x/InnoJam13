@@ -77,7 +77,6 @@ public class EnemyLogic : MonoBehaviour
         _health = health;
         if (_health <= 0f && !isDead)
         {
-
             Die();
         }
     }
@@ -91,7 +90,7 @@ public class EnemyLogic : MonoBehaviour
         SetHealth(_health - damage);
     }
 
-    private void Die()
+    public void Die()
     {
         WaveManager.EnemyDeaths++;
         isDead = true;

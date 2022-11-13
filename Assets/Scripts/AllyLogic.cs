@@ -77,14 +77,14 @@ public class AllyLogic : MonoBehaviour
         if (_health <= 0f && !isDead)
         {
             Die();
-            Destroy(gameObject, 1f);
         }
     }
 
-    private void Die()
+    public void Die()
     {
         AllySpawnerLogic.allyCount--;
         isDead = true;
         view.Die();
+        Destroy(gameObject, 1f);
     }
 }

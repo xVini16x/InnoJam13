@@ -13,5 +13,7 @@ namespace Events
         FeatherExplosion,
         CharacterDeath,
         FightAction,
+        Upgrade,
+        UpgradeFailed,
     }
 }

@@ -190,6 +190,12 @@ MonoBehaviour:
       type: 3}
   - type: 2
     particles: {fileID: 135726, guid: fa0f45d143def4e4188900695d955614, type: 3}
+  - type: 3
+    particles: {fileID: 1878065821641386, guid: 4bea99a565142254d9c238e986b159a1,
+      type: 3}
+  - type: 4
+    particles: {fileID: 1452515053693446, guid: 2e56fd1643229fd459ca004221b6c96f,
+      type: 3}
 --- !u!1 &7038023593206137023
 GameObject:
   m_ObjectHideFlags: 0

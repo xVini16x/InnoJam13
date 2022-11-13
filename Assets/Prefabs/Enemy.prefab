@@ -146,7 +146,7 @@ MonoBehaviour:
   damageAfterThrow: 5
   agent: {fileID: 3886142493357735807}
   enemyView: {fileID: 4610199666142785364}
-  navMeshDistanceCheck: 0.5
+  navMeshDistanceCheck: 1
   _rigidbody: {fileID: 1933708172048533104}
 --- !u!114 &4610199666142785364
 MonoBehaviour:
