@@ -20,7 +20,7 @@ public class AllyView : MonoBehaviour
 
         var scale = transform.localScale;
         var animationSeconds = 0.2f;
-        view.DOScale(scale, animationSeconds).From(0f).SetEase(Ease.OutBack);
+        //view.DOScale(scale, animationSeconds).From(0f).SetEase(Ease.OutBack);
     }
 
     public void Die()
