@@ -82,7 +82,7 @@ public class InventorySystem : ScriptableObjectSystemBase
         Func<Item, bool> condition = item => item.ItemType == itemType;
         if (!Items.Any(condition))
         {
-            Debug.LogError("We dont have that item currently");
+//            Debug.LogError("We dont have that item currently");
             return false;
         }
 
@@ -90,7 +90,7 @@ public class InventorySystem : ScriptableObjectSystemBase
             var item = Items.FirstOrDefault(condition);
             if (item.Count < amount)
             {
-                Debug.LogError("we dont have enough items");
+            //    Debug.LogError("we dont have enough items");
                 return false;
             }
             
