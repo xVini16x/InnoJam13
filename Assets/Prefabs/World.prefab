@@ -2273,7 +2273,7 @@ PrefabInstance:
     - target: {fileID: 6677066210131774781, guid: 25b531edb92b522409437facf06b4378,
         type: 3}
       propertyPath: m_text
-      value: 'Digitate Chicken
+      value: 'Mega Chicken
 
         Costs: 1 Egg'
       objectReference: {fileID: 0}
