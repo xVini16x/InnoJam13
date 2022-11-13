@@ -8,6 +8,11 @@
 	{
 		[SerializeField] private TextMeshProUGUI tmpField;
 
+		private void Start()
+		{
+			AllySpawnerLogic.allyCount = 0;
+		}
+
 		private void Update()
 		{
 			var chickens = AllySpawnerLogic.allyCount;
