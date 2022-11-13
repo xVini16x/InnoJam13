@@ -369,6 +369,8 @@ MonoBehaviour:
   costAmount: 10
   _inventorySystem: {fileID: 11400000, guid: 6dccd2a1e9987d04994fdb9230a11b8b, type: 2}
   blocker: {fileID: 4647905842699448918}
+  BiggerChicken: {fileID: 4585304758547016435, guid: e9eb0dd9e33dc48b2b0d84fc7ec03167,
+    type: 3}
 --- !u!135 &974446969872992830
 SphereCollider:
   m_ObjectHideFlags: 0

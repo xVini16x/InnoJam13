@@ -250,6 +250,7 @@ Transform:
   - {fileID: 3977531082539752909}
   - {fileID: 8232545019721202095}
   - {fileID: 3205360365009543505}
+  - {fileID: 7409909723833237368}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2196,6 +2197,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4402190134195928165, guid: e611434c1a88a834395136cc21cb14b6,
     type: 3}
   m_PrefabInstance: {fileID: 6004851637023616002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6037267577832439259
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6724632348398958382}
+    m_Modifications:
+    - target: {fileID: 3668024076479690547, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: costAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668024076479690547, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: _upgradeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.45118916
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8924284
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -126.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677066210131774781, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_text
+      value: 'Digitate Chicken
+
+        Costs: 1 Egg'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677066210131774781, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 25.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730343494121672897, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_Name
+      value: UpgradeStation (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25b531edb92b522409437facf06b4378, type: 3}
+--- !u!4 &7409909723833237368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
+    type: 3}
+  m_PrefabInstance: {fileID: 6037267577832439259}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6562908549508959266
 PrefabInstance:
