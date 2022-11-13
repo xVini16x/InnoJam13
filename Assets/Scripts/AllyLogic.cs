@@ -86,6 +86,6 @@ public class AllyLogic : MonoBehaviour
         AllySpawnerLogic.allyCount--;
         isDead = true;
         view.Die();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject);
     }
 }
