@@ -10,19 +10,21 @@ namespace UserInterface.View
         [SerializeField] private TextMeshProUGUI count;
 
         [SerializeField] private ItemType itemType;
+        [SerializeField] private RectTransform itemView;
 
         private void Awake()
         {
             MessageBroker.Default.Receive<ItemAmountChanged>()
                 .TakeUntilDestroy(this)
                 .Where(x => x.ItemType == itemType)
-                .Subscribe(LifeArtifactHealthChanged);
+                .Subscribe(OnItemAmountChanged);
         }
 
-        private void LifeArtifactHealthChanged(ItemAmountChanged data)
+        private void OnItemAmountChanged(ItemAmountChanged data)
         {
             count.transform.Shake();
             count.text = $"{data.NewCurrency} x";
+            itemView.Shake();
         }
     }
 }
