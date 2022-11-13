@@ -9,12 +9,13 @@ namespace World
     {
         [SerializeField] private GameObject[] allyPrefabs;
         [SerializeField] private float spawnIntervalSeconds;
-        public const  int maxAllyCount = 40;
+        public static  int maxAllyCount = 40;
         public static int allyCount = 0;
         [SerializeField] private Transform spawnPosition;
 
         private void Start()
         {
+            maxAllyCount = 3;
             Observable.Interval(
                     TimeSpan.FromSeconds(spawnIntervalSeconds))
                 .TakeUntilDestroy(gameObject)

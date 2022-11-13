@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using World;
 
 public class AllyLogic : MonoBehaviour
 {
@@ -82,6 +83,7 @@ public class AllyLogic : MonoBehaviour
 
     private void Die()
     {
+        AllySpawnerLogic.allyCount--;
         isDead = true;
         view.Die();
     }
