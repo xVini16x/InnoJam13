@@ -79,8 +79,14 @@ public class EnemyLogic : MonoBehaviour
         }
         if (other.transform.GetComponent<AllyLogic>() != null)
         {
-            // TODO: let enemy logic configure their attack strength
-            DealDamage(2f * Time.deltaTime);
+            if (other.transform.TryGetComponent(out DamageSettings settings))
+            {
+                DealDamage(settings.AttackPower * Time.deltaTime);
+            }
+            else
+            {
+                DealDamage(2f * Time.deltaTime);
+            }
         }
     }
 
