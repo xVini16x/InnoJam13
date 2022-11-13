@@ -106,7 +106,7 @@ public class UpgradeStation : MonoBehaviour
                 AllySpawnerLogic.allyCount++;
                 if (go.TryGetComponent<Rigidbody>(out var rigidbody))
                 {
-                    rigidbody.velocity = rigidVelocity;
+                    rigidbody.velocity = rigidVelocity/4f;
                 }
 
                 if (go.TryGetComponent<NavMeshAgent>(out var navMeshAgent))
