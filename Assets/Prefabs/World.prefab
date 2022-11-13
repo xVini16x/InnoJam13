@@ -1323,6 +1323,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6724632348398958382}
     m_Modifications:
+    - target: {fileID: 1002071599341221723, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3827469530673021603, guid: 25b531edb92b522409437facf06b4378,
         type: 3}
       propertyPath: m_RootOrder
@@ -1378,10 +1383,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4647905842699448918, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7730343494121672897, guid: 25b531edb92b522409437facf06b4378,
         type: 3}
       propertyPath: m_Name
       value: UpgradeStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138496968384735832, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468930396583335564, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b531edb92b522409437facf06b4378, type: 3}
@@ -3902,6 +3922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpgradeStation (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468930396583335564, guid: 25b531edb92b522409437facf06b4378,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b531edb92b522409437facf06b4378, type: 3}
