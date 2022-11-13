@@ -168,6 +168,7 @@ Transform:
   - {fileID: 5612045296650884065}
   - {fileID: 3004551194704067572}
   - {fileID: 3261271817073048406}
+  - {fileID: 3724748756482603410}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -504,6 +505,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 415402, guid: b9cf594d1d8302e4a884738a176ead3a,
     type: 3}
   m_PrefabInstance: {fileID: 3261271817073454588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3720367974552628426
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9090600971508783204}
+    m_Modifications:
+    - target: {fileID: 1089177414158914, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_Name
+      value: EmojiDerpGasp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199810779077047538, guid: 8898eec2e914d864cbacd434a30d6bff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c045d4bde67cfe4cba7327cc0dc762e, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8898eec2e914d864cbacd434a30d6bff, type: 3}
+--- !u!4 &3724748756482603410 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4945278214591832, guid: 8898eec2e914d864cbacd434a30d6bff,
+    type: 3}
+  m_PrefabInstance: {fileID: 3720367974552628426}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5615627152092750677
 PrefabInstance:
