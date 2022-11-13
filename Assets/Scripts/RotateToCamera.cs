@@ -10,11 +10,16 @@ namespace StarterAssets
 		[SerializeField] private bool inventoryCheck = true;
 		[SerializeField] private ItemType _itemType;
 		[SerializeField] private int amount;
+		[SerializeField] private bool rotate=false;
 		[SerializeField] private TextMeshProUGUI text;
 		
 		private void Update()
 		{
-			transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward * -1);
+			if (rotate)
+			{
+				transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward * -1);	
+			}
+			
 			if (inventoryCheck)
 			{
 				if (_inventorySystem.CouldUseItem(_itemType, amount))
