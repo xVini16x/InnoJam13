@@ -13,6 +13,20 @@ public class UpgradeStation : MonoBehaviour
     [SerializeField] private ItemType  _costsItem;
     [SerializeField] private int costAmount;
     [SerializeField] private InventorySystem _inventorySystem;
+    [SerializeField] private GameObject blocker;
+
+    private void Update()
+    {
+        if (_inventorySystem.CouldUseItem(_costsItem, costAmount))
+        {
+            blocker.SetActive(false);
+        }
+        else
+        {
+            blocker.SetActive(true);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         bool isValidTrigger = false;
